@@ -5,8 +5,9 @@ import type { AutoStop, LatLng, Route, Stop, StopKind } from "./lib/types";
 
 export type BaseLayer = "dark" | "streets" | "topo";
 
-const BASES: Record<BaseLayer, { url: string; attribution: string; maxZoom: number; subdomains?: string }> = {
-  dark: { url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", attribution: "© OpenStreetMap contributors © CARTO", maxZoom: 20, subdomains: "abcd" },
+const BASES: Record<BaseLayer, { url: string; attribution: string; maxZoom: number; subdomains?: string; className?: string }> = {
+  // Dark is the standard OpenStreetMap map darkened in the browser (see .wp-dark-tiles), so it needs no key and no second provider.
+  dark: { url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: "© OpenStreetMap contributors", maxZoom: 19, className: "wp-dark-tiles" },
   // The standard OpenStreetMap style draws every road down to farm tracks and footpaths.
   streets: { url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png", attribution: "© OpenStreetMap contributors", maxZoom: 19 },
   topo: { url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", attribution: "© OpenStreetMap contributors, SRTM · © OpenTopoMap (CC-BY-SA)", maxZoom: 17, subdomains: "abc" },
@@ -58,7 +59,7 @@ export default function MapView({ base, trails, stops, auto, routes, routeIndex,
     const m = map.current; if (!m) return;
     baseLayer.current?.remove();
     const b = BASES[base];
-    baseLayer.current = L.tileLayer(b.url, { attribution: b.attribution, maxZoom: b.maxZoom, subdomains: b.subdomains ?? "abc" }).addTo(m);
+    baseLayer.current = L.tileLayer(b.url, { attribution: b.attribution, maxZoom: b.maxZoom, subdomains: b.subdomains ?? "abc", className: b.className }).addTo(m);
     baseLayer.current.bringToBack();
   }, [base]);
 

@@ -43,6 +43,7 @@ button:disabled{opacity:.4;cursor:default}
 .wp-hint{bottom:12px}
 .wp-status{bottom:50px;color:var(--green);border-color:var(--green)}.wp-status.bad{color:var(--red);border-color:var(--red)}
 
+.wp-dark-tiles{filter:invert(1) hue-rotate(180deg) grayscale(.55) brightness(.85) contrast(.92)}
 .wp-pin{display:grid;place-items:center;width:28px;height:28px;background:#0b0b0b;border:2px solid var(--c);color:var(--c);font-family:var(--pixel);font-size:13px;box-shadow:0 0 0 2px rgba(0,0,0,.6)}
 .wp-pin.small{width:20px;height:20px;font-size:11px;border-width:2px;background:var(--c);color:#0b0b0b}
 .leaflet-tooltip.wp-tip{background:#050505;border:1px solid var(--green);color:var(--text);font-family:var(--pixel);font-size:11px;letter-spacing:.06em;box-shadow:none;padding:5px 9px}

@@ -20,7 +20,7 @@ All free and keyless, all OpenStreetMap based:
 
 | Need | Service |
 | --- | --- |
-| Map tiles | OpenStreetMap, CARTO, OpenTopoMap, Waymarked Trails |
+| Map tiles | OpenStreetMap (the Dark style is the same map darkened in the browser), OpenTopoMap, Waymarked Trails |
 | Driving routes | OSRM public server |
 | Gas stations and hotels | Overpass API |
 | Place search and pin names | Nominatim |
